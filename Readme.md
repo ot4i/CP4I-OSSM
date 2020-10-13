@@ -33,13 +33,13 @@ Provision Cloud Pak for Integration 2020.3 cluster on OpenShift Container Platfo
     - Select the `A specific namespace on the cluster` option and then select `openshift-operators-redhat` from the menu
   - Install the Red Hat version of the Jaeger operator (not community)
     - Select `1.17-stable`
-    - Select `All namespaces on the cluster`, which will install the Operator in the `openshift-operators` project
+    - Select *All namespaces on the cluster*, which will install the Operator in the `openshift-operators` project
   - Install the Red Hat version of Kiali (not community)
     - Select `stable`
-    - Select `All namespaces on the cluster`, which will install the Operator in the `openshift-operators` project
+    - Select *All namespaces on the cluster*, which will install the Operator in the `openshift-operators` project
   - Install Red Hat OpenShift Service Mesh
     - Select `stable`
-    - Select `All namespaces on the cluster`, which will install the Operator in the `openshift-operators` project
+    - Select *All namespaces on the cluster*, which will install the Operator in the `openshift-operators` project
 
 ### Service Mesh - Control Plane deployment
 - Create a project named `istio-system`
