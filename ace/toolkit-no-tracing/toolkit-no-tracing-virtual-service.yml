@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - labels:
-          istioselector: maybe-this-is-not-needed
+          istioselector: not-a-mandatory-value
     route:
     - destination:
         host: toolkit-no-tracing-is
