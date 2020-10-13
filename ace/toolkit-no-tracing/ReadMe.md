@@ -22,7 +22,9 @@ Deploying the ACE servers automatically creates a Kubernetes service and an Open
 For a proper usage of the Service Mesh, the ACE server Network Policy needs to be removed, and additional resources need to be created to expose the service outside of the service mesh.
 - Select the project where the ACE server has been deployed (e.g. `ace`)
 - Navigate to *Networking* > *Network Policies* and remove the Network Policy associated with the deployment.
-- This prevents from direct access to the Kubernetes service,
+- This prevents from direct access to the Kubernetes service.
+
+
 The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace`):
 - Create Istio Gateway: `toolkit-no-tracing-gateway.yaml`
 - Create Virtual Service: `toolkit-no-tracing-virtual-service.yaml`
