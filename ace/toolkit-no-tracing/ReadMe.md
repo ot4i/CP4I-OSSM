@@ -6,7 +6,11 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
 - Add an `Advanced: Annotation`
   - operand_create_name: `sidecar.istio.io/inject`
   - operand_create_value: `true`
+
+
 ![toolkit-no-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-annotation.png)
+
+
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
 
 Deploying the ACE servers automatically creates a Kubernetes service and an OpenShift route for that server. As the ACE operator creates a Network Policy which overrides the Istio one, the service is directly accessible from the link created in *Networking* > *Routes*:
@@ -31,7 +35,7 @@ At this point the service is uniquely accessible from the Istio gateway, and the
 
 - Navigate to the `istio-system` project
 - Navigate to *Networking* > *Routes*
-- Select the location for the route corresponding to the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-fhbhg`
+- Select the location for the route corresponding to the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-xxxx`
 - Append `/ping_test/v1/server` to the URL to test the service functionality.
 - The correct access mode will be visible in the Kiali dashboard:
 ![toolkit-no-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-kiali.png)
