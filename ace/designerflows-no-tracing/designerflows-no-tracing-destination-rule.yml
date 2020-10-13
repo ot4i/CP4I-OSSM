@@ -1,0 +1,6 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: designerflows-no-tracing-dr
+spec:
+  host: designerflows-no-tracing-ibm-ace-server-icp4i-prod

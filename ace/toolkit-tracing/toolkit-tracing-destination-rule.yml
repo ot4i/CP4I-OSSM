@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: toolkit-tracing-dr-1
+spec:
+  host: toolkit-tracing-ibm-ace-server-icp4i-prod
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: toolkit-tracing-dr-2
+spec:
+  host: toolkit-tracing-v2-ibm-ace-server-icp4i-prod

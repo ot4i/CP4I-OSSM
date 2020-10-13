@@ -1,0 +1,83 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        retrieveDeveloper:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: developer
+          output-context:
+            data: developer
+      options:
+        resources:
+          - business-object: developer
+            model:
+              $ref: '#/models/developer'
+            triggers:
+              retrieve: retrieveDeveloper
+      type: api-trigger
+  action-interfaces: {}
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - set-variable:
+              name: Set variable
+              map:
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                customSchemas:
+                  properties.`variable`:
+                    type: object
+                    properties:
+                      output_text:
+                        type: string
+                mappings:
+                  - variable:
+                      mappings:
+                        - output_text:
+                            template: '{{$api.name}} is now a v2 developer!'
+          - response:
+              name: response-1
+              reply-maps:
+                - title: developer successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: Setvariable
+                        $ref: '#/node-output/Set variable/response/payload'
+                    mappings:
+                      - name:
+                          template: '{{$api.name}}'
+                      - output_text:
+                          template: '{{$Setvariable.variable.output_text}}'
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: Setvariable
+                      $ref: '#/node-output/Set variable/response/payload'
+  name: simpleAPI
+models:
+  developer:
+    name: developer
+    properties:
+      name:
+        required: false
+        id: true
+        type: string
+      output_text:
+        required: false
+        id: false
+        type: string
+    plural: developer
+    description: ' '
+    operations:
+      retrieve: '#/integration/assemblies/assembly-1'

@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: designerflows-tracing-vs
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - designerflows-tracing-gw
+  http:
+  - match:
+    - headers:
+        X-ABTEST:
+          exact: TEST
+    route:
+    - destination:
+        host: designerflows-tracing-ibm-ace-server-icp4i-prod
+        port:
+          number: 7800
+      weight: 50
+    - destination:
+        host: designerflows-tracing-v2-ibm-ace-server-icp4i-prod
+        port:
+          number: 7800
+      weight: 50

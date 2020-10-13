@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: toolkit-tracing-vs
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - toolkit-tracing-gw
+  http:
+  - match:
+    - headers:
+        X-ABTEST:
+          exact: TEST
+    route:
+    - destination:
+        host: toolkit-tracing-ibm-ace-server-icp4i-prod
+        port:
+          number: 7800
+      weight: 50
+    - destination:
+        host: toolkit-tracing-v2-ibm-ace-server-icp4i-prod
+        port:
+          number: 7800
+      weight: 50

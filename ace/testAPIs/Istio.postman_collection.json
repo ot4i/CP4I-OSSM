@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "d898e1bb-54b6-4de5-bdd9-17589449b2e6",
+		"name": "Istio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Toolkit Tracing Test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ABTEST",
+						"value": "TEST",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://toolkit-tracing.icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000.eu-gb.containers.appdomain.cloud/ping_test/v1/server",
+					"protocol": "http",
+					"host": [
+						"toolkit-tracing",
+						"icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000",
+						"eu-gb",
+						"containers",
+						"appdomain",
+						"cloud"
+					],
+					"path": [
+						"ping_test",
+						"v1",
+						"server"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Designerflows Tracing Test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ABTEST",
+						"value": "TEST",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://designerflows-tracing.icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000.eu-gb.containers.appdomain.cloud/simpleAPI/developer/John",
+					"protocol": "http",
+					"host": [
+						"designerflows-tracing",
+						"icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000",
+						"eu-gb",
+						"containers",
+						"appdomain",
+						"cloud"
+					],
+					"path": [
+						"simpleAPI",
+						"developer",
+						"John"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
