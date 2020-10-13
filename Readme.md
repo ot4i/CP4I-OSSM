@@ -89,10 +89,10 @@ Note that existing Network policies will take precedence on the newly created on
 
 [//]: 4 "Say something about editing the operator's annotations (https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues), and how we're going to do it"
 - Test with 4 ACE servers types:
-  - `toolkit-no-tracing`: a 1-replica deployment, with no OD and Designer sidecars
-  - `toolkit-tracing`: a 1-replica deployment, with OD sidecars, but no Designer sidecars
-  - `designerflows-no-tracing`: a 1-replica deployment, with Designer sidecars, but no OD sidecars
-  - `designerflows-tracing`: a 1-replica deployment, with both OD and Designer sidecars
+  - `toolkit-no-tracing`: deployment with no OD and Designer sidecars
+  - `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars
+  - `designerflows-no-tracing`: deployment with Designer sidecars, but no OD sidecars
+  - `designerflows-tracing`: deployment with both OD and Designer sidecars
 - Detailed instructions for each test case is available here: https://github.ibm.com/claudio-tag/Istio-PoC/tree/master/ace
 
 ![working-configuration](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/working-configuration-kiali.png)
