@@ -27,6 +27,7 @@ For a proper usage of the Service Mesh, the ACE server Network Policy needs to b
 
 The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace`):
 - Create Istio Gateway: `toolkit-no-tracing-gateway.yaml`
+  - To automatically generate an OpenShift route, add a `host` which is a FQDN resolvable to your cluster.
 - Create Virtual Service: `toolkit-no-tracing-virtual-service.yaml`
 - Create Destination Rule: `toolkit-no-tracing-destionation-rule.yaml`
 
