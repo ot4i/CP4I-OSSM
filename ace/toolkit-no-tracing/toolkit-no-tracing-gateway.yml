@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - toolkit-no-tracing.istio-ace-example.eu-gb.containers.appdomain.cloud
+    - toolkit-no-tracing.cp4i-ossm-example.eu-gb.containers.appdomain.cloud
