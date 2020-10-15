@@ -14,12 +14,12 @@ spec:
           exact: TEST
     route:
     - destination:
-        host: designerflows-tracing-ibm-ace-server-icp4i-prod
+        host: designerflows-tracing-is
         port:
           number: 7800
       weight: 50
     - destination:
-        host: designerflows-tracing-v2-ibm-ace-server-icp4i-prod
+        host: designerflows-tracing-v2-is
         port:
           number: 7800
       weight: 50
