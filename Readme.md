@@ -99,6 +99,8 @@ In this example we will examine how to use AppConnect Enterprise together with t
 - Create a dedicated OpenShift project: e.g. `ace-istio`.
 - Deploy the AppConnect Dashboard to this project.
 - Add this project to the ServiceMeshMemberRoll in the OSSM operator instance: this will create two new network policies in the `ace-istio` project to prevent access to anything in that namespace:
+
+
 ![Istio network policies](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/istio-netpols.png)
 
 ***Note:*** existing Network policies will take precedence on the newly created ones: e.g. the ACE Dashboard network policies.
