@@ -59,20 +59,21 @@ The yaml files in this folder can be used directly in the OpenShift console to c
 Once the additional resources have been deployed, their correct configuration can be checked in Kiali (accessible from the installed operators in the `istio-system` project):
 ![toolkit-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-kiali-config.png)
 
-At this point the service is solely accessible from the Istio gateway, and the automatic route creation also exposes an OpenShift Route pointing directly at the gateway endpoint for this service.
+At this point the services are solely accessible from the Istio gateway, and the automatic route creation also exposes an OpenShift Route pointing directly at the gateway endpoint for this service.
 
 - In the OpenShift console, navigate to the `istio-system` project
 - Select to *Networking* > *Routes*
-- Locate the Route which matches the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-xxxx`
-- Click the URL in the *Location* column
-- Append `/ping_test/v1/server` to the URL and call it from the web browser
-- From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh:
+- Locate the Route which matches the host defined in `toolkit-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-tracing-gw-xxxx`
+- Copy the URL in the *Location* column
+- Open this postman collection and select the *Toolkit Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/dev/ace/testAPIs/Istio-ACE.postman_collection.json
+- Replace the URL with the one copied from the Route above, making sure to keep the `/ping_test/v1/server` suffix
+  -  This test performs a call adding the header `X-ABTEST:TEST`. This header is mapped to the virtual service, and the traffic gets consequently split across the two ACE server versions.
+- From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh, and routed across the two server versions:
 
 
-![toolkit-no-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-flow.png)
-
-
+![toolkit-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-flow.png)
 
 
 - Confirm that tracing is working in the Operations Dashboard:
-![pingtest-tracing](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/pingtest-tracing.png)
+![tracing-2versions](https://github.com/ClaudioTag/CP4I-OSSM/blob/dev/images/tracing-2versions.png)
+![pingtest-tracing](https://github.com/ClaudioTag/CP4I-OSSM/blob/dev/images/pingtest-tracing.png)
