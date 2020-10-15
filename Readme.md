@@ -1,6 +1,12 @@
 # Cloud Pak for Integration and Red Hat OpenShift Service Mesh
 
-[//]: 0 "Add index"
+## Contents
+
+1. [Introduction](#introduction)
+1. [Cluster set-up](#cluster-set-up)
+1. [Service Mesh set-up](#service-mesh-set-up)
+1. [Test Applications](#test-applications)
+1. [Service Mesh removal](#service-mesh-removal)
 
 ## Introduction
 
@@ -20,7 +26,7 @@ Provision Cloud Pak for Integration 2020.3 cluster on OpenShift Container Platfo
 
 ## Service Mesh set-up
 
-### Service Mesh Installation
+### Installation
 - Refer to instructions at: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_install/installing-ossm.html
 - Versions if on OpenShfit 4.4:
   - Red Hat Service Mesh 1.1.9
@@ -48,7 +54,7 @@ Provision Cloud Pak for Integration 2020.3 cluster on OpenShift Container Platfo
     - Select `stable`
     - Select *All namespaces on the cluster*, which will install the Operator in the `openshift-operators` project
 
-### Service Mesh - Control Plane deployment
+### Control Plane deployment
 - Create a project named `istio-system`
 - Navigate to *Installed Operators* in the `istio-system` project, and make sure that all the cluster-wide operators are available and in *Succeeded* state
 - Create *ServiceMeshControlPlane* in the `istio-system` namespace, from the Installed Operators tab, and using the `all-in-one` yaml template without customisation: `cp4i-istio-controplane`
@@ -66,7 +72,7 @@ spec:
 
 Once the Service mesh is successfully deployed, it generates by default network policies which prevent accessing pods via the OpenShift Routes, unless specifically exposed via pre-existing Network polices (which is the case for the ACE Dashboard and ACE Designer).
 
-### Service Mesh - Control Plane configuration
+### Control Plane configuration
 #### Mixer policy enforcement
 - Change mixer policy enforcement from `disablePolicyChecks: true`  to `disablePolicyChecks: false`.
 #### Automatic Route Creation
@@ -88,13 +94,13 @@ To test that sidecar injection is working:
 - Test that Istio injection works for selected deployments: a sidecar container called `istio-proxy` is added to the pod
 - For full instructions refer to: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_day_two/prepare-to-deploy-applications-ossm.html
 
-## Applications
+## Test Applications
 
 ### Bookinfo
 A more articulate example is given by the Bookinfo application. In this example, deployments are  created via YAML files.
 - Refer to: https://github.com/ot4i/CP4I-OSSM/tree/master/bookinfo
 
-### ACE Server
+### ACE Servers
 In this example we will examine how to use AppConnect Enterprise together with the OpenShift Service Mesh.
 - Create a dedicated OpenShift project: e.g. `ace-istio`.
 - Deploy the AppConnect Dashboard to this project.
@@ -123,5 +129,5 @@ If all 4 configurations are deployed, the Kiali dashboard will display them simi
 
 ![complete-configuration](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/complete-configuration-kiali.png)
 
-## Remove the OpenShift Service Mesh
+## Service Mesh removal
 To uninstall the OpenShift Service Mesh, use the script available here: https://github.com/ot4i/CP4I-OSSM/blob/master/remove-service-mesh/remove-mesh-script.sh
