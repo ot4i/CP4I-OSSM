@@ -17,11 +17,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://toolkit-tracing.icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000.eu-gb.containers.appdomain.cloud/ping_test/v1/server",
+					"raw": "http://toolkit-tracing.cp4i-ossm-example.eu-gb.containers.appdomain.cloud/ping_test/v1/server",
 					"protocol": "http",
 					"host": [
 						"toolkit-tracing",
-						"icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000",
+						"cp4i-ossm-example",
 						"eu-gb",
 						"containers",
 						"appdomain",
@@ -48,11 +48,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://designerflows-tracing.icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000.eu-gb.containers.appdomain.cloud/simpleAPI/developer/John",
+					"raw": "http://designerflows-tracing.cp4i-ossm-example.eu-gb.containers.appdomain.cloud/simpleAPI/developer/John",
 					"protocol": "http",
 					"host": [
 						"designerflows-tracing",
-						"icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000",
+						"cp4i-ossm-example",
 						"eu-gb",
 						"containers",
 						"appdomain",
