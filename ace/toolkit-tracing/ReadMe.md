@@ -71,7 +71,7 @@ At this point the services are solely accessible from the Istio gateway, and the
 - From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh, and routed across the two server versions:
 
 
-![toolkit-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-flow.png)
+![toolkit-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-kiali.png)
 
 
 - Confirm that tracing is working in the Operations Dashboard:
