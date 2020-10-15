@@ -82,7 +82,7 @@ Once the Service mesh is successfully deployed, it generates by default network 
 - Refer to: https://github.com/ClaudioTag/CP4I-OSSM/tree/master/bookinfo
 
 ### ACE Server
-- Add the namespace where you intend to deploy ace (e.g. `ace`) to the ServiceMeshMemberRoll, which creates two new network policies which prevent access to anything in that namespace:
+- Add the namespace where you intend to deploy ACE (e.g. `ace-istio`) to the ServiceMeshMemberRoll, which creates two new network policies which prevent access to anything in that namespace:
 ![Istio netowrk policies](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/Istio-network-policies.png)
 
 Note that existing Network policies will take precedence on the newly created ones.

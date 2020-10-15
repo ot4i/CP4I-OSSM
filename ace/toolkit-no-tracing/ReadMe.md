@@ -29,13 +29,13 @@ To test the ACE service via this Route (without going via the OSSM):
 ![toolkit-no-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-direct.png)
 
 To use the Istio service mesh as it's intended, however, no direct access to Kubernetes services should be allowed. For a proper usage of the Service Mesh, the **ACE server Network Policy needs to be removed**, and additional resources need to be created to expose the service outside of the service mesh. To remove the Network Policy:
-- Select the project where the ACE server has been deployed (e.g. `ace`)
+- Select the project where the ACE server has been deployed (e.g. `ace-istio`)
 - Navigate to *Networking* > *Network Policies* and remove the Network Policy associated with the deployment.
 
 ## Expose ACE service via the mesh ingress
 For the ACE service to be exposed via the mesh ingress, additional Istio resources need to be created: an Istio Gateway, a Virtual Service, one (or more) Destination Rules.
 
-The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace`).
+The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace-istio`).
 ![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/ocp-add-resource.png)
 - Create Istio Gateway: `toolkit-no-tracing-gateway.yaml`
   - To automatically generate an OpenShift route, customise the `host` field with FQDN resolvable to your cluster.
