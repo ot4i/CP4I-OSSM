@@ -75,5 +75,5 @@ At this point the services are solely accessible from the Istio gateway, and the
 
 
 - Confirm that tracing is working in the Operations Dashboard:
-![tracing-2versions](https://github.com/ClaudioTag/CP4I-OSSM/blob/dev/images/tracing-2versions.png)
-![pingtest-tracing](https://github.com/ClaudioTag/CP4I-OSSM/blob/dev/images/pingtest-tracing.png)
+![tracing-2versions](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/tracing-2versions.png)
+![pingtest-tracing](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/pingtest-tracing.png)
