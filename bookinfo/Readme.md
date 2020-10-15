@@ -25,7 +25,6 @@ curl http://productpage.istio-test-ns-01.svc.cluster.local:9080
 ```
 kubectl apply -n istio-test-ns-01 -f https://raw.githubusercontent.com/Maistra/istio/maistra-1.1/samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
-**Note:** it didn't work from terminal, but worked from KUI
 
 - Customise the Istio Gateway to add hosts. See example here: https://github.com/ClaudioTag/CP4I-OSSM/blob/master/bookinfo/bookinfo-gateway.yml
 This will automatically generate routes in OpenShift if IOR is enabled.

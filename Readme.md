@@ -2,8 +2,13 @@
 
 [//]: 0 "Add index"
 
-[//]: 1 "Need more context: the top level CP4I-OSSM readme needs to better explain what it is, why it’s there for people who come to it without reading this post. "
+## Introduction
 
+In this repo we provide instructions on how to set up the Red Hat OpenShift Service Mesh - based on Istio - on an OpenShfit cluster running the Cloud Pak for Integration.
+
+We also describe 4 test use cases to use ACE together with the OpenShift Service mesh, providing details on how ACE can be enabled to work together with Istio.
+
+It is worth nothing that:
 - An installation of Red Hat OpenShift Service Mesh differs from upstream Istio community installations in multiple ways: https://docs.openshift.com/container-platform/4.3/service_mesh/service_mesh_arch/ossm-vs-community.html#ossm-vs-community
 - OCP uses an opinionated version of Istio called Maistra: https://maistra.io/
 
@@ -62,8 +67,12 @@ spec:
 Once the Service mesh is successfully deployed, it generates by default network policies which prevent accessing pods via the OpenShift Routes, unless specifically exposed via pre-existing Network polices (which is the case for the ACE Dashboard and ACE Designer).
 
 ### Service Mesh - Control Plane configuration
+#### Mixer policy enforcement
+- Change mixer policy enforcement from `disablePolicyChecks: true`  to `disablePolicyChecks: false`.
 #### Automatic Route Creation
-[//]: 5 "Explain what IOR is."
+The OpenShift Service Mesh provides a feature called *Automatic Route Creation*. If this feature is enabled, every time an Istio Gateway is created, updated or deleted inside the service mesh, an OpenShift route is created, updated or deleted.
+
+To leverage this feature:
 - Enable automatic route creation (IOR)
   - In the Service Mesh Control plane change `ior_enabled` from `false` to `true`:
   ```
@@ -71,32 +80,41 @@ Once the Service mesh is successfully deployed, it generates by default network 
   ```
 - For full instructions refer to: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_day_two/ossm-auto-route.html  
 #### Sidecar Injection
-[//]: 2 "Explain that to enable sidecar injection a particular annotation needs to be added to the deployment. This is done differently if the deployment is managed by an operator or not."
-- To enable sidecar injection, add line: `sidecar.istio.io/inject: 'true'` to a test deployment in **spec > template > metadata > annotations**
-- Change mixer policy enforcement from `disablePolicyChecks: true`  to `disablePolicyChecks: false`.
-- Test that Istio injection works for selected deployments
+With the OpenShift Service Mesh, for Envoy proxy sidecars to be automatically injected into pods at deployment time, each Kubernetes deployment needs to have a special annotation: the annotation `sidecar.istio.io/inject: 'true'` needs to be present in the deployment spec's template metadata.
+- For deployments created from a YAML file or a Helm package, this annotation can be manually added to the spec.
+- For deployments created by an Operator (like CP4I runtimes), this annotation needs to be present in the Operator spec.
+To test that sidecar injection is working:
+- Create a generic test deployment via YAML.
+- To enable sidecar injection, add line: `sidecar.istio.io/inject: 'true'` to the test deployment in **spec > template > metadata > annotations**
+- Test that Istio injection works for selected deployments: a sidecar container called `istio-proxy` is added to the pod
 - For full instructions refer to: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_day_two/prepare-to-deploy-applications-ossm.html
 
 ## Applications
 
 ### Bookinfo
-[//]: 3 "Say something about this example, and the fact that we're going to annotate the deployment directly."
-- Refer to: https://github.com/ClaudioTag/CP4I-OSSM/tree/master/bookinfo
+A more articulate example is given by the Bookinfo application. In this example, deployments are  created via YAML files.
+- Refer to: https://github.com/ot4i/CP4I-OSSM/tree/master/bookinfo
 
 ### ACE Server
-- Add the namespace where you intend to deploy ACE (e.g. `ace-istio`) to the ServiceMeshMemberRoll, which creates two new network policies which prevent access to anything in that namespace:
+In this example we will examine how to use AppConnect Enterprise together with the OpenShift Service Mesh.
+- Create a dedicated OpenShift project: e.g. `ace-istio`.
+- Deploy the AppConnect Dashboard to this project.
+- Add this project to the ServiceMeshMemberRoll in the OSSM operator instance: this will create two new network policies in the `ace-istio` project to prevent access to anything in that namespace:
 ![Istio netowrk policies](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/Istio-network-policies.png)
 
-Note that existing Network policies will take precedence on the newly created ones.
+Note that existing Network policies will take precedence on the newly created ones: e.g. the ACE Dashboard network policies.
 
-[//]: 4 "Say something about editing the operator's annotations (https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues), and how we're going to do it"
-- This repo provides 4 ACE server examples to test ACE + Istio functionality:
-  1. `toolkit-no-tracing`: deployment with no OD and Designer sidecars
-  2. `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars - includes A/B test
-  3. `designerflows-no-tracing`: deployment with Designer sidecars, but no OD sidecars
-  4. `designerflows-tracing`: deployment with both OD and Designer sidecars - includes A/B test
-- Detailed instructions for each test case are available here: https://github.com/ot4i/CP4I-OSSM/tree/dev/ace
-- Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
+ACE servers, like other ACE runtimes, are deployed via Kubernetes Operators. In Cloud Pak for Integration 2020.3.1, it is possible to add custom annotations to the operators at deployment time, like the one needed to enable sidecar injection: https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues. In this example we will use this feature via the ACE Dashboard User Interface.
+
+This repo provides 4 ACE server examples to test ACE + Istio functionality:
+1. `toolkit-no-tracing`: deployment with no OD and Designer sidecars
+2. `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars - includes A/B test
+3. `designerflows-no-tracing`: deployment with Designer sidecars, but no OD sidecars
+4. `designerflows-tracing`: deployment with both OD and Designer sidecars - includes A/B test
+
+Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
+
+Detailed instructions for each test case are available here: https://github.com/ot4i/CP4I-OSSM/tree/dev/ace.
 
 If all 4 configurations are deployed, the Kiali dashboard will display them similarly to the picture below:
 
