@@ -48,4 +48,4 @@ At this point the service is solely accessible from the Istio gateway, and the a
 - Select the location for the route corresponding to the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-xxxx`
 - Append `/ping_test/v1/server` to the URL to test the service functionality.
 - The correct access mode will be visible in the Kiali dashboard:
-![toolkit-no-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-kiali.png)
+![toolkit-no-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-flow.png)
