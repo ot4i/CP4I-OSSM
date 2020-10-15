@@ -99,11 +99,13 @@ In this example we will examine how to use AppConnect Enterprise together with t
 - Create a dedicated OpenShift project: e.g. `ace-istio`.
 - Deploy the AppConnect Dashboard to this project.
 - Add this project to the ServiceMeshMemberRoll in the OSSM operator instance: this will create two new network policies in the `ace-istio` project to prevent access to anything in that namespace:
-![Istio netowrk policies](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/Istio-network-policies.png)
+![Istio network policies](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/istio-netpols.png)
 
 ***Note:*** existing Network policies will take precedence on the newly created ones: e.g. the ACE Dashboard network policies.
 
-ACE servers, like other ACE runtimes, are deployed via Kubernetes Operators. In Cloud Pak for Integration 2020.3.1, it is possible to add custom annotations to the operators at deployment time, like the one needed to enable sidecar injection: https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues. In this example we will use this feature via the ACE Dashboard User Interface.
+ACE servers, like other ACE runtimes, are deployed via Kubernetes Operators. In Cloud Pak for Integration 2020.3.1, it is possible to add custom annotations to the operators at deployment time, like the one needed to enable sidecar injection: https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues.
+
+In this example we will use this feature via the ACE Dashboard User Interface.
 
 This repo provides 4 ACE server examples to test ACE + Istio functionality:
 1. `toolkit-no-tracing`: deployment with no OD and Designer sidecars
