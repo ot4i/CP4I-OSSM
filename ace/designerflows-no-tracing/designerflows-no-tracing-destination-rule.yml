@@ -3,4 +3,4 @@ kind: DestinationRule
 metadata:
   name: designerflows-no-tracing-dr
 spec:
-  host: designerflows-no-tracing-ibm-ace-server-icp4i-prod
+  host: designerflows-no-tracing-is

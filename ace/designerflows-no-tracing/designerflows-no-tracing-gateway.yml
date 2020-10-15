@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - designerflows-no-tracing.icp4i-istio-2-de84486a60b3b0d17097c54f4549015a-0000.eu-gb.containers.appdomain.cloud
+    - designerflows-no-tracing.cp4i-ossm-example.eu-gb.containers.appdomain.cloud

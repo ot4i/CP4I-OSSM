@@ -10,9 +10,9 @@ spec:
   http:
   - match:
     - labels:
-          istioselector: maybe-this-is-not-needed
+          istioselector: not-a-mandatory-value
     route:
     - destination:
-        host: designerflows-no-tracing-ibm-ace-server-icp4i-prod
+        host: designerflows-no-tracing-is
         port:
           number: 7800
