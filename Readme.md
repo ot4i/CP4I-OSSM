@@ -98,7 +98,7 @@ Note that existing Network policies will take precedence on the newly created on
 
 If all 4 configurations are deployed, the Kiali dashboard will display them similarly to the picture below:
 
-![complete-configuration](https://github.com/ClaudioTag/CP4I-OSSM/blob/dev/images/complete-configuration-kiali.png)
+![complete-configuration](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/complete-configuration-kiali.png)
 
 ## Remove the OpenShift Service Mesh
 To uninstall the OpenShift Service Mesh, use the script available here: https://github.com/ot4i/CP4I-OSSM/blob/master/remove-service-mesh/remove-mesh-script.sh
