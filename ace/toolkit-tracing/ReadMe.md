@@ -3,7 +3,7 @@ This example deploys an ACE application designed via the ACE toolkit, with Opera
 
 ## Sidecar injection
 To enable Istio sidecar injection, at deployment time you can add a custom annotation to the ACE operator.
-- Create a new service from the ACE Dashboard
+- Create a new *Toolkit Integration* service from the ACE Dashboard
 - Use the *Server Ping* test service: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/serverPing.bar
 - Enable Operations Dashboard tracing
 - Enable *Advanced Settings*
@@ -36,7 +36,7 @@ To use the Istio service mesh as it's intended, however, no direct access to Kub
 
 ## Deploy v2 for A/B testing
 Deploying a second version of the same ACE server will allow to use the Istio Virtual Service to split traffic across two versions: A/B testing.
-- Create a new service from the ACE Dashboard
+- Create a new *Toolkit Integration* service from the ACE Dashboard
 - Use the *Server Ping v2* test service: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/serverPingv2.bar
 - Follow the same instructions to deploy *Server Ping*
 
