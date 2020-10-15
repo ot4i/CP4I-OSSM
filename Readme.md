@@ -79,7 +79,9 @@ To leverage this feature:
 #### Sidecar Injection
 With the OpenShift Service Mesh, for Envoy proxy sidecars to be automatically injected into pods at deployment time, each Kubernetes deployment needs to have a special annotation: the annotation `sidecar.istio.io/inject: 'true'` needs to be present in the deployment spec's template metadata.
 - For deployments created from a YAML file or a Helm package, this annotation can be manually added to the spec.
-- For deployments created by an Operator (like CP4I runtimes), this annotation needs to be present in the Operator spec.
+- For deployments created by an Operator (like all CP4I runtimes), this annotation needs to be present in the Operator spec.
+
+
 To test that sidecar injection is working:
 - Create a generic test deployment via YAML.
 - To enable sidecar injection, add line: `sidecar.istio.io/inject: 'true'` to the test deployment in **spec > template > metadata > annotations**
