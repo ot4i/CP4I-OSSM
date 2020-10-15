@@ -24,8 +24,10 @@ To test the ACE service via this Route (without going via the OSSM):
 - Select *Networking* > *Routes*
 - Locate the Route which matches that of the ACE service you have deployed (e.g. `toolkit-no-tracing-http`)
 - Click the URL in the *Location* column
-- Append `/ping_test/v1/server` to the URL and call it from your web browser
+- Append `/ping_test/v1/server` to the URL and call it from the web browser
 - Access the Kiali dashboard from the installed operators in the `istio-system` project, to validate that the service access bypasses the mesh:
+
+
 ![toolkit-no-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-direct.png)
 
 To use the Istio service mesh as it's intended, however, no direct access to Kubernetes services should be allowed. For a proper usage of the Service Mesh, the **ACE server Network Policy needs to be removed**, and additional resources need to be created to expose the service outside of the service mesh. To remove the Network Policy:
@@ -36,6 +38,8 @@ To use the Istio service mesh as it's intended, however, no direct access to Kub
 For the ACE service to be exposed via the mesh ingress, additional Istio resources need to be created: an Istio Gateway, a Virtual Service, one (or more) Destination Rules.
 
 The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace-istio`).
+
+
 ![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/ocp-add-resource.png)
 - Create Istio Gateway: `toolkit-no-tracing-gateway.yaml`
   - To automatically generate an OpenShift route, customise the `host` field with FQDN resolvable to your cluster.
@@ -53,6 +57,8 @@ At this point the service is solely accessible from the Istio gateway, and the a
 - Select to *Networking* > *Routes*
 - Locate the Route which matches the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-xxxx`
 - Click the URL in the *Location* column
-- Append `/ping_test/v1/server` to the URL and call it from your web browser
+- Append `/ping_test/v1/server` to the URL and call it from the web browser
 - From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh:
+
+
 ![toolkit-no-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-flow.png)
