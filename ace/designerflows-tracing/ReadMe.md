@@ -38,7 +38,7 @@ To use the Istio service mesh as it's intended, however, no direct access to Kub
 
 ## Deploy v2 for A/B testing
 Deploying a second version of the same ACE server will allow to use the Istio Virtual Service to split traffic across two versions: A/B testing.
-- Create a new *Toolkit Integration* service from the ACE Dashboard
+- Create a new *Designer   Integration* service from the ACE Dashboard
 - Use the *Simple API v2* test service: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/simpleAPIv2.bar
 - Follow the same instructions to deploy *Simple API*
 
@@ -65,15 +65,15 @@ At this point the services are solely accessible from the Istio gateway, and the
 
 - In the OpenShift console, navigate to the `istio-system` project
 - Select to *Networking* > *Routes*
-- Locate the Route which matches the host defined in `toolkit-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-tracing-gw-xxxx`
+- Locate the Route which matches the host defined in `designerflows-tracing-gateway.yaml`: e.g. `ace-istio-designerflows-tracing-gw-xxxx`
 - Copy the URL in the *Location* column
-- Open this postman collection and select the *Toolkit Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/dev/ace/testAPIs/Istio-ACE.postman_collection.json
-- Replace the URL with the one copied from the Route above, making sure to keep the `/ping_test/v1/server` suffix
+- Open this postman collection and select the *Designerflows Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/dev/ace/testAPIs/Istio-ACE.postman_collection.json
+- Replace the URL with the one copied from the Route above, making sure to keep the `/simpleAPI/developer/John` suffix
   -  This test performs a call adding the header `X-ABTEST:TEST`. This header is mapped to the virtual service, and the traffic gets consequently split across the two ACE server versions.
 - From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh, and routed across the two server versions:
 
 
-![designerflows-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-kiali.png)
+![designerflows-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-tracing-kiali.png)
 
 
 - Confirm that tracing is working in the Operations Dashboard
