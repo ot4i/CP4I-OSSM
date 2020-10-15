@@ -55,7 +55,7 @@ The yaml files in this folder can be used directly in the OpenShift console to c
 - Create Virtual Service: `toolkit-tracing-virtual-service.yaml`
   - Note that this virtual service has two destinations, with traffic split 50% each
   - Make sure that the `host` fields in the two `destinations` clauses point at the names of the two Kubernetes service deployed by the ACE operator.
-- Create Destination Rule: `toolkit-tracing-destionation-rule.yaml`
+- Create Destination Rule: `toolkit-tracing-destionation-rules.yaml`
   - Make sure that the `host` fields in the two `destinations` clauses point at the names of the two Kubernetes service deployed by the ACE operator.
   - Note that this file contains two resources, which might have to be created once at a time.
 
