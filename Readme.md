@@ -90,9 +90,9 @@ Note that existing Network policies will take precedence on the newly created on
 [//]: 4 "Say something about editing the operator's annotations (https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues), and how we're going to do it"
 - This repo provides 4 ACE server examples to test ACE + Istio functionality:
   1. `toolkit-no-tracing`: deployment with no OD and Designer sidecars
-  2. `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars
+  2. `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars - includes A/B test
   3. `designerflows-no-tracing`: deployment with Designer sidecars, but no OD sidecars
-  4. `designerflows-tracing`: deployment with both OD and Designer sidecars
+  4. `designerflows-tracing`: deployment with both OD and Designer sidecars - includes A/B test
 - Detailed instructions for each test case are available here: https://github.ibm.com/claudio-tag/Istio-PoC/tree/master/ace
 - Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
 
