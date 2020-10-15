@@ -11,7 +11,7 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
   - operand_create_value: `true`
 
 
-![toolkit-no-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-annotation.png)
+![toolkit-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-annotation.png)
 
 
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
@@ -20,9 +20,9 @@ This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deploy
 Additionally, the ACE operator creates a Network Policy for each new ACE deployment. This Network Policy overrides the Network Policy implemented by OSSM (which blocks all non-Istio traffic to the namespace) and allows direct access to the ACE pods via an OpenShift Route (also created by the ACE operator).
 
 To test the ACE service via this Route (without going via the OSSM):
-- In the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace`)
+- In the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace-istio`)
 - Select *Networking* > *Routes*
-- Locate the Route which matches that of the ACE service you have deployed (e.g. `toolkit-no-tracing-http`)
+- Locate the Route which matches that of the ACE service you have deployed (e.g. `toolkit-tracing-http`)
 - Click the URL in the *Location* column
 - Append `/ping_test/v1/server` to the URL and call it from the web browser
 - Access the Kiali dashboard from the installed operators in the `istio-system` project, to validate that the service access bypasses the mesh:

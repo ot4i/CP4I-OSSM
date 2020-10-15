@@ -20,7 +20,7 @@ This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deploy
 Additionally, the ACE operator creates a Network Policy for each new ACE deployment. This Network Policy overrides the Network Policy implemented by OSSM (which blocks all non-Istio traffic to the namespace) and allows direct access to the ACE pods via an OpenShift Route (also created by the ACE operator).
 
 To test the ACE service via this Route (without going via the OSSM):
-- In the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace`)
+- In the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace-istio`)
 - Select *Networking* > *Routes*
 - Locate the Route which matches that of the ACE service you have deployed (e.g. `toolkit-no-tracing-http`)
 - Click the URL in the *Location* column
