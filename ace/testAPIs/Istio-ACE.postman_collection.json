@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "d898e1bb-54b6-4de5-bdd9-17589449b2e6",
-		"name": "Istio",
+		"name": "Istio-ACE",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
