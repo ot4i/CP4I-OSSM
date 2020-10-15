@@ -1,6 +1,9 @@
 # ACE app test: toolkit-tracing
 This example deploys an ACE application designed via the ACE toolkit, with Operational Dashboard sidecars, but no designer flow sidecars.
 
+This example also includes A/B testing instructions.
+
+
 ## Sidecar injection
 To enable Istio sidecar injection, at deployment time you can add a custom annotation to the ACE operator.
 - Create a new *Toolkit Integration* service from the ACE Dashboard
