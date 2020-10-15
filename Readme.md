@@ -95,7 +95,7 @@ Note that existing Network policies will take precedence on the newly created on
   2. `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars - includes A/B test
   3. `designerflows-no-tracing`: deployment with Designer sidecars, but no OD sidecars
   4. `designerflows-tracing`: deployment with both OD and Designer sidecars - includes A/B test
-- Detailed instructions for each test case are available here: https://github.ibm.com/claudio-tag/Istio-PoC/tree/master/ace
+- Detailed instructions for each test case are available here: https://github.com/ot4i/CP4I-OSSM/tree/dev/ace
 - Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
 
 If all 4 configurations are deployed, the Kiali dashboard will display them similarly to the picture below:
