@@ -74,11 +74,7 @@ The OpenShift Service Mesh provides a feature called *Automatic Route Creation*.
 
 To leverage this feature:
 - Enable Automatic Route Creation (IOR)
-  - In the Service Mesh Control plane change `ior_enabled` from `false` to `true`:
-
-  ```
-  ior_enabled: true
-  ```
+  - In the Service Mesh Control plane, change from `ior_enabled:false` to `ior_enabled:true`.
 - For full instructions refer to: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_day_two/ossm-auto-route.html  
 #### Sidecar Injection
 With the OpenShift Service Mesh, for Envoy proxy sidecars to be automatically injected into pods at deployment time, each Kubernetes deployment needs to have a special annotation: the annotation `sidecar.istio.io/inject: 'true'` needs to be present in the deployment spec's template metadata.
