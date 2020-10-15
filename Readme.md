@@ -102,3 +102,5 @@ If all 4 configurations are deployed, the Kiali dashboard will display them simi
 
 ## Remove the OpenShift Service Mesh
 To uninstall the OpenShift Service Mesh, use the script available here: https://github.com/ot4i/CP4I-OSSM/blob/master/remove-service-mesh/remove-mesh-script.sh
+
+[//]: 7 "Remove URLs from postman collection"
