@@ -1,5 +1,5 @@
 # ACE app test: toolkit-no-tracing
-This example deploys an ACE application designed via the ACE toolkit, with no Operational Dashboard and Designer sidecars.
+This example deploys an ACE application designed via the ACE toolkit, with no Operational Dashboard nor Designer sidecars.
 
 ## Sidecar injection
 To enable Istio sidecar injection, at deployment time you can add a custom annotation to the ACE operator.
