@@ -20,7 +20,7 @@ This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deploy
 Additionally, the ACE operator creates a Network Policy for each new ACE deployment. This Network Policy overrides the Network Policy implemented by OSSM (which blocks all non-Istio traffic to the namespace) and allows direct access to the ACE pods via an OpenShift Route (also created by the ACE operator).
 
 To test the ACE service via this Route (without going via the OSSM):
-- From the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace`)
+- In the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace`)
 - Select *Networking* > *Routes*
 - Locate the Route which matches that of the ACE service you have deployed (e.g. `toolkit-no-tracing-http`)
 - Click the URL in the *Location* column
@@ -49,9 +49,10 @@ Once the additional resources have been deployed, their correct configuration ca
 
 At this point the service is solely accessible from the Istio gateway, and the automatic route creation also exposes an OpenShift Route pointing directly at the gateway endpoint for this service.
 
-- Navigate to the `istio-system` project
-- Navigate to *Networking* > *Routes*
-- Select the location for the route corresponding to the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-xxxx`
-- Append `/ping_test/v1/server` to the URL to test the service functionality.
-- The correct access mode will be visible in the Kiali dashboard:
+- In the OpenShift console, navigate to the `istio-system` project
+- Select to *Networking* > *Routes*
+- Locate the Route which matches the host defined in `toolkit-no-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-no-tracing-gw-xxxx`
+- Click the URL in the *Location* column
+- Append `/ping_test/v1/server` to the URL and call it from your web browser
+- From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh:
 ![toolkit-no-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-no-tracing-flow.png)
