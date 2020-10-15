@@ -6,7 +6,7 @@
 
 In this repo we provide instructions on how to set up the Red Hat OpenShift Service Mesh - based on Istio - on an OpenShfit cluster running the Cloud Pak for Integration.
 
-We also describe 4 test use cases to use ACE together with the OpenShift Service mesh, providing details on how ACE can be enabled to work together with Istio.
+We also describe 4 test use cases to use ACE together with the OpenShift Service Mesh, providing details on how ACE can be enabled to work together with Istio.
 
 It is worth nothing that:
 - An installation of Red Hat OpenShift Service Mesh differs from upstream Istio community installations in multiple ways: https://docs.openshift.com/container-platform/4.3/service_mesh/service_mesh_arch/ossm-vs-community.html#ossm-vs-community
@@ -50,9 +50,9 @@ Provision Cloud Pak for Integration 2020.3 cluster on OpenShift Container Platfo
 
 ### Service Mesh - Control Plane deployment
 - Create a project named `istio-system`
-- Navigate to `Installed Operators` in the `istio-system` project, and make sure that all the cluster-wide operators are available and in `Succeeded` state
-- Create `ServiceMeshControlPlane` in the `istio-system` namespace, from the Installed Operators tab, and using the `all-in-one` yaml template without customisation: `cp4i-istio-controplane`
-- Create a `ServiceMeshMemberRoll` called `default`, with a sample empty project (e.g. `istio-test`) added to the members:
+- Navigate to *Installed Operators* in the `istio-system` project, and make sure that all the cluster-wide operators are available and in *Succeeded* state
+- Create *ServiceMeshControlPlane* in the `istio-system` namespace, from the Installed Operators tab, and using the `all-in-one` yaml template without customisation: `cp4i-istio-controplane`
+- Create a *ServiceMeshMemberRoll* called `default`, with a sample empty project (e.g. `istio-test`) added to the members:
 ```
 apiVersion: maistra.io/v1
 kind: ServiceMeshMemberRoll
@@ -73,8 +73,9 @@ Once the Service mesh is successfully deployed, it generates by default network 
 The OpenShift Service Mesh provides a feature called *Automatic Route Creation*. If this feature is enabled, every time an Istio Gateway is created, updated or deleted inside the service mesh, an OpenShift route is created, updated or deleted.
 
 To leverage this feature:
-- Enable automatic route creation (IOR)
+- Enable Automatic Route Creation (IOR)
   - In the Service Mesh Control plane change `ior_enabled` from `false` to `true`:
+
   ```
   ior_enabled: true
   ```
@@ -102,7 +103,7 @@ In this example we will examine how to use AppConnect Enterprise together with t
 - Add this project to the ServiceMeshMemberRoll in the OSSM operator instance: this will create two new network policies in the `ace-istio` project to prevent access to anything in that namespace:
 ![Istio netowrk policies](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/Istio-network-policies.png)
 
-Note that existing Network policies will take precedence on the newly created ones: e.g. the ACE Dashboard network policies.
+***Note:*** existing Network policies will take precedence on the newly created ones: e.g. the ACE Dashboard network policies.
 
 ACE servers, like other ACE runtimes, are deployed via Kubernetes Operators. In Cloud Pak for Integration 2020.3.1, it is possible to add custom annotations to the operators at deployment time, like the one needed to enable sidecar injection: https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues. In this example we will use this feature via the ACE Dashboard User Interface.
 
