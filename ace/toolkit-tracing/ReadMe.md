@@ -5,11 +5,11 @@ This example deploys an ACE application designed via the ACE toolkit, with Opera
 To enable Istio sidecar injection, at deployment time you can add a custom annotation to the ACE operator.
 - Create a new service from the ACE Dashboard
 - Use the **Server Ping** test service: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/serverPing.bar
+- Enable Operations Dashboard tracing
 - Enable **Advanced Settings**
 - Add an **Advanced: Annotation**
   - operand_create_name: `sidecar.istio.io/inject`
   - operand_create_value: `true`
-
 
 ![toolkit-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-annotation.png)
 
@@ -17,7 +17,7 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
 
 ## Remove ACE network policy
-Additionally, the ACE operator creates a Network Policy for each new ACE deployment. This Network Policy overrides the Network Policy implemented by OSSM (which blocks all non-Istio traffic to the namespace) and allows direct access to the ACE pods via an OpenShift Route (also created by the ACE operator).
+The ACE operator creates a Network Policy for each new ACE deployment. This Network Policy overrides the Network Policy implemented by OSSM (which blocks all non-Istio traffic to the namespace) and allows direct access to the ACE pods via an OpenShift Route (also created by the ACE operator).
 
 To test the ACE service via this Route (without going via the OSSM):
 - In the OpenShift console, select the project where you have deployed the ACE service (e.g. `ace-istio`)
