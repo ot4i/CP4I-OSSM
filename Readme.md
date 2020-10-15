@@ -95,6 +95,6 @@ Note that existing Network policies will take precedence on the newly created on
   - `designerflows-tracing`: deployment with both OD and Designer sidecars
 - Detailed instructions for each test case are available here: https://github.ibm.com/claudio-tag/Istio-PoC/tree/master/ace
 
-If all 4 configurations are deployed, the Kiali dashboard would display them similarly to the picture below:
+If all 4 configurations are deployed, the Kiali dashboard will display them similarly to the picture below:
 
 ![working-configuration](https://github.com/ClaudioTag/CP4I-OSSM/blob/master/images/working-configuration-kiali.png)
