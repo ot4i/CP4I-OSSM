@@ -4,9 +4,9 @@ This example deploys an ACE application designed via the ACE toolkit, with no Op
 ## Sidecar injection
 To enable Istio sidecar injection, at deployment time you can add a custom annotation to the ACE operator.
 - Create a new service from the ACE Dashboard
-- Use the **Server Ping** test service: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/serverPing.bar
-- Enable **Advanced Settings**
-- Add an **Advanced: Annotation**
+- Use the *Server Ping* test service: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/serverPing.bar
+- Enable *Advanced Settings*
+- Add an *Advanced: Annotation*
   - operand_create_name: `sidecar.istio.io/inject`
   - operand_create_value: `true`
 
