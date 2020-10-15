@@ -1,5 +1,7 @@
 # Cloud Pak for Integration and Red Hat OpenShift Service Mesh
 
+[//]: 0 "Add index"
+
 [//]: 1 "Need more context: the top level CP4I-OSSM readme needs to better explain what it is, why it’s there for people who come to it without reading this post. "
 
 - An installation of Red Hat OpenShift Service Mesh differs from upstream Istio community installations in multiple ways: https://docs.openshift.com/container-platform/4.3/service_mesh/service_mesh_arch/ossm-vs-community.html#ossm-vs-community
