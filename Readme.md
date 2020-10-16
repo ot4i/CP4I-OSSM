@@ -98,7 +98,7 @@ To test that sidecar injection is working:
 
 ### Bookinfo
 A more articulate example is given by the Bookinfo application. In this example, deployments are  created via YAML files.
-- Refer to: https://github.com/ot4i/CP4I-OSSM/tree/master/bookinfo
+- Refer to: https://github.com/ot4i/CP4I-OSSM/tree/main/bookinfo
 
 ### ACE Servers
 In this example we will examine how to use AppConnect Enterprise together with the OpenShift Service Mesh.
@@ -107,7 +107,7 @@ In this example we will examine how to use AppConnect Enterprise together with t
 - Add this project to the ServiceMeshMemberRoll in the OSSM operator instance: this will create two new network policies in the `ace-istio` project to prevent access to anything in that namespace:
 
 
-![Istio network policies](https://github.com/ot4i/CP4I-OSSM/blob/master/images/istio-netpols.png)
+![Istio network policies](https://github.com/ot4i/CP4I-OSSM/blob/main/images/istio-netpols.png)
 
 ***Note:*** existing Network policies will take precedence on the newly created ones: e.g. the ACE Dashboard network policies.
 
@@ -123,11 +123,11 @@ This repo provides 4 ACE server examples to test ACE + Istio functionality:
 
 Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
 
-Detailed instructions for each test case are available here: https://github.com/ot4i/CP4I-OSSM/tree/master/ace.
+Detailed instructions for each test case are available here: https://github.com/ot4i/CP4I-OSSM/tree/main/ace.
 
 If all 4 configurations are deployed, the Kiali dashboard will display them similarly to the picture below:
 
-![complete-configuration](https://github.com/ot4i/CP4I-OSSM/blob/master/images/complete-configuration-kiali.png)
+![complete-configuration](https://github.com/ot4i/CP4I-OSSM/blob/main/images/complete-configuration-kiali.png)
 
 ## Service Mesh removal
-To uninstall the OpenShift Service Mesh, use the script available here: https://github.com/ot4i/CP4I-OSSM/blob/master/remove-service-mesh/remove-mesh-script.sh
+To uninstall the OpenShift Service Mesh, use the script available here: https://github.com/ot4i/CP4I-OSSM/blob/main/remove-service-mesh/remove-mesh-script.sh
