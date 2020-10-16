@@ -57,7 +57,7 @@ Provision Cloud Pak for Integration 2020.3 on OpenShift Container Platform 4.4 o
 ### Control Plane deployment
 - Create a project named `istio-system`
 - Navigate to *Installed Operators* in the `istio-system` project, and make sure that all the cluster-wide operators are available and in *Succeeded* state
-- Create *ServiceMeshControlPlane* in the `istio-system` namespace, from the Installed Operators tab, and using the `all-in-one` yaml template without customisation: `cp4i-istio-controplane`
+- Create a *ServiceMeshControlPlane* in the `istio-system` namespace, from the Installed Operators tab, and using the `all-in-one` yaml template without customisation: `cp4i-istio-controplane`
 - Create a *ServiceMeshMemberRoll* called `default`, with a sample empty project (e.g. `istio-test`) added to the members:
 ```
 apiVersion: maistra.io/v1
