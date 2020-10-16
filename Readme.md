@@ -6,6 +6,10 @@
 1. [Cluster set-up](#cluster-set-up)
 1. [Service Mesh set-up](#service-mesh-set-up)
 1. [Test Applications](#test-applications)
+  - [ACE flow designed in the toolkit with tracing disabled](https://github.com/ot4i/CP4I-OSSM/tree/main/ace/toolkit-no-tracing)
+  - [ACE flow designed in the toolkit with tracing enabled](https://github.com/ot4i/CP4I-OSSM/tree/main/ace/toolkit-tracing)
+  - [ACE flow designed in ACE Designer with tracing disabled](https://github.com/ot4i/CP4I-OSSM/tree/main/ace/designerflows-no-tracing)
+  - [ACE flow designed in ACE Designer with tracing enabled](https://github.com/ot4i/CP4I-OSSM/tree/main/ace/designerflows-tracing)
 1. [Service Mesh removal](#service-mesh-removal)
 
 ## Introduction
