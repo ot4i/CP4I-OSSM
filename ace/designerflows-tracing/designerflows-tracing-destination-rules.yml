@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: designerflows-tracing-dr-1
+spec:
+  host: designerflows-tracing-is
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: designerflows-tracing-dr-2
+spec:
+  host: designerflows-tracing-v2-is

@@ -1,0 +1,6 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: toolkit-no-tracing-dr
+spec:
+  host: toolkit-no-tracing-is
