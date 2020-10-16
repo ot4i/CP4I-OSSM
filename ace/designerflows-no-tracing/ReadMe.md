@@ -11,7 +11,7 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
   - operand_create_value: `true`
 
 
-![designerflows-no-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-no-tracing-annotation.png)
+![designerflows-no-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-no-tracing-annotation.png)
 
 
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
@@ -28,7 +28,7 @@ To test the ACE service via this Route (without going via the OSSM):
 - Access the Kiali dashboard from the installed operators in the `istio-system` project, to validate that the service access bypasses the mesh:
 
 
-![designerflows-no-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-no-tracing-direct.png)
+![designerflows-no-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-no-tracing-direct.png)
 
 To use the Istio service mesh as it's intended, however, no direct access to Kubernetes services should be allowed. For a proper usage of the Service Mesh, the **ACE server Network Policy needs to be removed**, and additional resources need to be created to expose the service outside of the service mesh. To remove the Network Policy:
 - Select the project where the ACE server has been deployed (e.g. `ace-istio`)
@@ -40,7 +40,7 @@ For the ACE service to be exposed via the mesh ingress, additional Istio resourc
 The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace-istio`).
 
 
-![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/ocp-add-resource.png)
+![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/master/images/ocp-add-resource.png)
 - Create Istio Gateway: `designerflows-no-tracing-gateway.yaml`
   - To automatically generate an OpenShift route, customise the `host` field with FQDN resolvable to your cluster.
 - Create Virtual Service: `designerflows-no-tracing-virtual-service.yaml`
@@ -49,7 +49,7 @@ The yaml files in this folder can be used directly in the OpenShift console to c
   - Make sure that the `host` field in the `spec` clause points at the name of the Kubernetes service deployed by the ACE operator.
 
 Once the additional resources have been deployed, their correct configuration can be checked in Kiali (accessible from the installed operators in the `istio-system` project):
-![designerflows-no-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-no-tracing-kiali-config.png)
+![designerflows-no-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-no-tracing-kiali-config.png)
 
 At this point the service is solely accessible from the Istio gateway, and the automatic route creation also exposes an OpenShift Route pointing directly at the gateway endpoint for this service.
 
@@ -61,4 +61,4 @@ At this point the service is solely accessible from the Istio gateway, and the a
 - From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh:
 
 
-![designerflows-no-tracing-flow](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-no-tracing-flow.png)
+![designerflows-no-tracing-flow](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-no-tracing-flow.png)

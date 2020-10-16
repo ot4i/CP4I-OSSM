@@ -13,7 +13,7 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
   - operand_create_value: `true`
 
 
-![designerflows-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-tracing-annotation.png)
+![designerflows-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-tracing-annotation.png)
 
 
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
@@ -30,7 +30,7 @@ To test the ACE service via this Route (without going via the OSSM):
 - Access the Kiali dashboard from the installed operators in the `istio-system` project, to validate that the service access bypasses the mesh:
 
 
-![designerflows-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-tracing-direct.png)
+![designerflows-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-tracing-direct.png)
 
 To use the Istio service mesh as it's intended, however, no direct access to Kubernetes services should be allowed. For a proper usage of the Service Mesh, the **ACE server Network Policy needs to be removed**, and additional resources need to be created to expose the service outside of the service mesh. To remove the Network Policy:
 - Select the project where the ACE server has been deployed (e.g. `ace-istio`)
@@ -48,7 +48,7 @@ For the ACE service to be exposed via the mesh ingress, additional Istio resourc
 The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace-istio`).
 
 
-![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/ocp-add-resource.png)
+![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/master/images/ocp-add-resource.png)
 - Create Istio Gateway: `designerflows-tracing-gateway.yaml`
   - To automatically generate an OpenShift route, customise the `host` field with FQDN resolvable to your cluster.
 - Create Virtual Service: `designerflows-tracing-virtual-service.yaml`
@@ -59,7 +59,7 @@ The yaml files in this folder can be used directly in the OpenShift console to c
   - Note that this file contains two resources, which might have to be created once at a time.
 
 Once the additional resources have been deployed, their correct configuration can be checked in Kiali (accessible from the installed operators in the `istio-system` project):
-![designerflows-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-tracing-kiali-config.png)
+![designerflows-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-tracing-kiali-config.png)
 
 At this point the services are solely accessible from the Istio gateway, and the automatic route creation also exposes an OpenShift Route pointing directly at the gateway endpoint for this service.
 
@@ -67,17 +67,17 @@ At this point the services are solely accessible from the Istio gateway, and the
 - Select to *Networking* > *Routes*
 - Locate the Route which matches the host defined in `designerflows-tracing-gateway.yaml`: e.g. `ace-istio-designerflows-tracing-gw-xxxx`
 - Copy the URL in the *Location* column
-- Open this postman collection and select the *Designerflows Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/dev/ace/testAPIs/Istio-ACE.postman_collection.json
+- Open this postman collection and select the *Designerflows Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/Istio-ACE.postman_collection.json
 - Replace the URL with the one copied from the Route above, making sure to keep the `/simpleAPI/developer/John` suffix
   -  This test performs a call adding the header `X-ABTEST:TEST`. This header is mapped to the virtual service, and the traffic gets consequently split across the two ACE server versions.
 - From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh, and routed across the two server versions:
 
 
-![designerflows-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-tracing-kiali.png)
+![designerflows-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-tracing-kiali.png)
 
 
 - Confirm that tracing is working in the Operations Dashboard
 
 
-![designerflows-tracing-2versions](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/designerflows-tracing-2versions.png)
-![simpleapi-tracing](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/smipleapi-tracing.png)
+![designerflows-tracing-2versions](https://github.com/ot4i/CP4I-OSSM/blob/master/images/designerflows-tracing-2versions.png)
+![simpleapi-tracing](https://github.com/ot4i/CP4I-OSSM/blob/master/images/smipleapi-tracing.png)

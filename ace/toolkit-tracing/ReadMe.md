@@ -14,7 +14,7 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
   - operand_create_name: `sidecar.istio.io/inject`
   - operand_create_value: `true`
 
-![toolkit-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-annotation.png)
+![toolkit-tracing-annotation](https://github.com/ot4i/CP4I-OSSM/blob/master/images/toolkit-tracing-annotation.png)
 
 
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
@@ -31,7 +31,7 @@ To test the ACE service via this Route (without going via the OSSM):
 - Access the Kiali dashboard from the installed operators in the `istio-system` project, to validate that the service access bypasses the mesh:
 
 
-![toolkit-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-direct.png)
+![toolkit-tracing-direct](https://github.com/ot4i/CP4I-OSSM/blob/master/images/toolkit-tracing-direct.png)
 
 To use the Istio service mesh as it's intended, however, no direct access to Kubernetes services should be allowed. For a proper usage of the Service Mesh, the **ACE server Network Policy needs to be removed**, and additional resources need to be created to expose the service outside of the service mesh. To remove the Network Policy:
 - Select the project where the ACE server has been deployed (e.g. `ace-istio`)
@@ -49,7 +49,7 @@ For the ACE service to be exposed via the mesh ingress, additional Istio resourc
 The yaml files in this folder can be used directly in the OpenShift console to create the additional resources required by Istio, once the correct project has been selected (e.g. `ace-istio`).
 
 
-![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/ocp-add-resource.png)
+![ocp-add-resource](https://github.com/ot4i/CP4I-OSSM/blob/master/images/ocp-add-resource.png)
 - Create Istio Gateway: `toolkit-tracing-gateway.yaml`
   - To automatically generate an OpenShift route, customise the `host` field with FQDN resolvable to your cluster.
 - Create Virtual Service: `toolkit-tracing-virtual-service.yaml`
@@ -60,7 +60,7 @@ The yaml files in this folder can be used directly in the OpenShift console to c
   - Note that this file contains two resources, which might have to be created once at a time.
 
 Once the additional resources have been deployed, their correct configuration can be checked in Kiali (accessible from the installed operators in the `istio-system` project):
-![toolkit-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-kiali-config.png)
+![toolkit-tracing-kiali-config](https://github.com/ot4i/CP4I-OSSM/blob/master/images/toolkit-tracing-kiali-config.png)
 
 At this point the services are solely accessible from the Istio gateway, and the automatic route creation also exposes an OpenShift Route pointing directly at the gateway endpoint for this service.
 
@@ -68,17 +68,17 @@ At this point the services are solely accessible from the Istio gateway, and the
 - Select to *Networking* > *Routes*
 - Locate the Route which matches the host defined in `toolkit-tracing-gateway.yaml`: e.g. `ace-istio-toolkit-tracing-gw-xxxx`
 - Copy the URL in the *Location* column
-- Open this postman collection and select the *Toolkit Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/dev/ace/testAPIs/Istio-ACE.postman_collection.json
+- Open this postman collection and select the *Toolkit Tracing Test*: https://github.com/ot4i/CP4I-OSSM/blob/master/ace/testAPIs/Istio-ACE.postman_collection.json
 - Replace the URL with the one copied from the Route above, making sure to keep the `/ping_test/v1/server` suffix
   -  This test performs a call adding the header `X-ABTEST:TEST`. This header is mapped to the virtual service, and the traffic gets consequently split across the two ACE server versions.
 - From the Kiali dashboard, it will be possible to see the service call routed from the Istio ingress via the mesh, and routed across the two server versions:
 
 
-![toolkit-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/toolkit-tracing-kiali.png)
+![toolkit-tracing-kiali](https://github.com/ot4i/CP4I-OSSM/blob/master/images/toolkit-tracing-kiali.png)
 
 
 - Confirm that tracing is working in the Operations Dashboard
 
 
-![tracing-2versions](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/tracing-2versions.png)
-![pingtest-tracing](https://github.com/ot4i/CP4I-OSSM/blob/dev/images/pingtest-tracing.png)
+![tracing-2versions](https://github.com/ot4i/CP4I-OSSM/blob/master/images/tracing-2versions.png)
+![pingtest-tracing](https://github.com/ot4i/CP4I-OSSM/blob/master/images/pingtest-tracing.png)
