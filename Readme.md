@@ -20,7 +20,7 @@ It is worth nothing that:
 
 ## Cluster set-up
 
-Provision Cloud Pak for Integration 2020.3 cluster on OpenShift Container Platform 4.4 or 4.5: https://www.ibm.com/support/knowledgecenter/SSGT7J_20.3/install/sysreqs.html.
+Provision Cloud Pak for Integration 2020.3 on OpenShift Container Platform 4.4 or 4.5: https://www.ibm.com/support/knowledgecenter/SSGT7J_20.3/install/sysreqs.html.
 
 ***Note:*** The instructions in this repo specifically refer to these versions of the CP4I and OCP.
 
