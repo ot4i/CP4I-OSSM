@@ -38,7 +38,9 @@ Provision Cloud Pak for Integration 2020.3 on OpenShift Container Platform 4.4 o
 ## Service Mesh set-up
 
 ### Installation
-- Refer to instructions at: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_install/installing-ossm.html
+- Refer to version-specific instructions:
+  - For OCP 4.4: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_install/installing-ossm.html
+  - For OCP 4.5: https://docs.openshift.com/container-platform/4.5/service_mesh/service_mesh_install/installing-ossm.html
 - Versions if on OpenShfit 4.4:
   - Red Hat Service Mesh 1.1.9
   - Istio 1.4.8
@@ -94,7 +96,7 @@ To leverage this feature:
   - In the Service Mesh Control plane, change from `ior_enabled:false` to `ior_enabled:true`.
 - For full instructions refer to: https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_day_two/ossm-auto-route.html  
 #### Sidecar Injection
-With the OpenShift Service Mesh, for Envoy proxy sidecars to be automatically injected into pods at deployment time, each Kubernetes deployment needs to have a special annotation: the annotation `sidecar.istio.io/inject: 'true'` needs to be present in the deployment spec's template metadata.
+With the OpenShift Service Mesh, for Envoy Proxy sidecars to be automatically injected into pods at deployment time, each Kubernetes deployment needs to have a special annotation: the annotation `sidecar.istio.io/inject: 'true'` needs to be present in the deployment spec's template metadata.
 - For deployments created from a YAML file or a Helm package, this annotation can be manually added to the spec.
 - For deployments created by an Operator (like all CP4I runtimes), this annotation needs to be present in the Operator spec.
 
@@ -124,13 +126,13 @@ In this example we will examine how to use AppConnect Enterprise together with t
 
 ACE servers, like other ACE runtimes, are deployed via Kubernetes Operators. In Cloud Pak for Integration 2020.3.1, it is possible to add custom annotations to the operators at deployment time, like the one needed to enable sidecar injection: https://www.ibm.com/support/knowledgecenter/SSTTDS_11.0.0/com.ibm.ace.icp.doc/certc_install_integrationserveroperandreference.html#crvalues.
 
-In this example we will use this feature via the ACE Dashboard User Interface.
+In these instructions we will use this feature via the ACE Dashboard User Interface.
 
-This repo provides 4 ACE server examples to test ACE + Istio functionality:
-1. `toolkit-no-tracing`: deployment with no OD and Designer sidecars
-2. `toolkit-tracing`: deployment with OD sidecars, but no Designer sidecars - includes A/B test
-3. `designerflows-no-tracing`: deployment with Designer sidecars, but no OD sidecars
-4. `designerflows-tracing`: deployment with both OD and Designer sidecars - includes A/B test
+This repo provides four ACE server example configurations to test ACE + Istio functionality:
+1. `toolkit-no-tracing`: deployment with no Operational Dashboard and Designer sidecars
+2. `toolkit-tracing`: deployment with Operational Dashboard sidecars, but no Designer sidecars - **includes A/B test**
+3. `designerflows-no-tracing`: deployment with Designer sidecars, but no Operational Dashboard sidecars
+4. `designerflows-tracing`: deployment with both Operational Dashboard and Designer sidecars - **includes A/B test**
 
 Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
 
