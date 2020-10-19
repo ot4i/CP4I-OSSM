@@ -14,9 +14,16 @@
 
 ## Introduction
 
-In this repo we provide instructions on how to set up the Red Hat OpenShift Service Mesh - based on Istio - on an OpenShfit cluster running the Cloud Pak for Integration.
+In this repo we provide instructions to set up the Red Hat OpenShift Service Mesh - based on Istio - on an OpenShfit cluster running the Cloud Pak for Integration, and how to enable AppConnect Enterprise (ACE) to work together with Istio.
 
-We also describe 4 test use cases to use ACE together with the OpenShift Service Mesh, providing details on how ACE can be enabled to work together with Istio.
+We will describe how to:
+- Deploy the Red Hat OpenShift Service Mesh to an OpenShift cluster running the IBM Cloud Pak for Integration
+- Create an *istio-enabled* project to run ACE servers
+- Work with the out-of-the-box Network Policies created when deploying ACE
+- Route traffic to ACE using the correct Istio resources
+- Deploy new version of the ACE servers and perform A/B testing through Istio
+
+![Solution Architecture](https://github.com/ot4i/CP4I-OSSM/blob/main/images/sol-arch.png)
 
 It is worth nothing that:
 - An installation of Red Hat OpenShift Service Mesh differs from upstream Istio community installations in multiple ways: https://docs.openshift.com/container-platform/4.3/service_mesh/service_mesh_arch/ossm-vs-community.html#ossm-vs-community
