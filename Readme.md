@@ -129,10 +129,10 @@ ACE servers, like other ACE runtimes, are deployed via Kubernetes Operators. In 
 In these instructions we will use this feature via the ACE Dashboard User Interface.
 
 This repo provides four ACE server example configurations to test ACE + Istio functionality:
-1. *toolkit-no-tracing*: deployment with no Operational Dashboard and Designer sidecars
-2. *toolkit-tracing*: deployment with Operational Dashboard sidecars, but no Designer sidecars - **with A/B test**
-3. *designerflows-no-tracing*: deployment with Designer sidecars, but no Operational Dashboard sidecars
-4. *designerflows-tracing*: deployment with both Operational Dashboard and Designer sidecars - **with A/B test**
+1. *toolkit-no-tracing*: deployment with no Operations Dashboard and Designer sidecars
+2. *toolkit-tracing*: deployment with Operations Dashboard sidecars, but no Designer sidecars - **with A/B test**
+3. *designerflows-no-tracing*: deployment with Designer sidecars, but no Operations Dashboard sidecars
+4. *designerflows-tracing*: deployment with both Operations Dashboard and Designer sidecars - **with A/B test**
 
 Test cases 2 and 4 also implement A/B testing via the Istio Service Mesh.
 
