@@ -23,7 +23,7 @@ We will describe how to:
 - Route traffic to ACE using the correct Istio resources
 - Deploy new version of the ACE servers and perform A/B testing through Istio
 
-![Solution Architecture](https://github.com/ot4i/CP4I-OSSM/blob/main/images/sol-arch.png)
+![Solution Architecture](https://github.com/ot4i/CP4I-OSSM/blob/main/images/solution-arch.png)
 
 It is worth nothing that:
 - An installation of Red Hat OpenShift Service Mesh differs from upstream Istio community installations in multiple ways: https://docs.openshift.com/container-platform/4.3/service_mesh/service_mesh_arch/ossm-vs-community.html#ossm-vs-community
