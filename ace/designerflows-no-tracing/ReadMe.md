@@ -1,7 +1,7 @@
 # ACE app test: designerflows-no-tracing
 This example deploys an ACE application designed via ACE Designer, with designer flow sidecars, but no Operational Dashboard sidecars.
 
-## Sidecar injection
+## ACE Server deployment
 To enable Istio sidecar injection, at deployment time you can add a custom annotation to the ACE operator.
 - Create a new *Designer Integration* service from the ACE Dashboard
 - Use the *Simple API* test service: https://github.com/ot4i/CP4I-OSSM/blob/main/ace/testAPIs/simpleAPI.bar
@@ -15,6 +15,8 @@ To enable Istio sidecar injection, at deployment time you can add a custom annot
 
 
 This will add the annotation `sidecar.istio.io/inject: 'true'` to the ACE deployment metadata, which in turn will allow for envoy sidecar injection.
+
+Once all details are filled out, hit the *Create* button.
 
 ## Remove ACE network policy
 The ACE operator creates a Network Policy for each new ACE deployment. This Network Policy overrides the Network Policy implemented by OSSM (which blocks all non-Istio traffic to the namespace) and allows direct access to the ACE pods via an OpenShift Route (also created by the ACE operator).
