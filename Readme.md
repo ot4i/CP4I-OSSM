@@ -16,6 +16,10 @@
 
 In this repo we provide instructions to set up the Red Hat OpenShift Service Mesh - based on Istio - on an OpenShift cluster running the Cloud Pak for Integration, and how to enable AppConnect Enterprise (ACE) to work together with Istio.
 
+Please also refer to the blogg series describing the benefits of using Istio and Cloud Pk for Integration:
+- Part 1: http://ibm.biz/CP4I-Istio
+- Part 2: http://ibm.biz/CP4I-OSSM
+
 We will describe how to:
 - Deploy the Red Hat OpenShift Service Mesh to an OpenShift cluster running the IBM Cloud Pak for Integration
 - Create an *istio-enabled* project to run ACE servers
