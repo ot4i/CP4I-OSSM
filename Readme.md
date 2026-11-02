@@ -1,3 +1,5 @@
+**This repo has not been in active development for a long while and is being archived.**
+
 # Cloud Pak for Integration and Red Hat OpenShift Service Mesh
 
 ## Contents
